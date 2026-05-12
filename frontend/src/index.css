@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+/* ── Google Fonts ── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+/* ── Design Tokens ── */
+:root {
+  --color-bg:        #0d0f14;
+  --color-surface:   #161b26;
+  --color-surface2:  #1e2535;
+  --color-border:    #2a3247;
+  --color-accent:    #6c63ff;
+  --color-accent2:   #ff6584;
+  --color-text:      #e2e8f0;
+  --color-muted:     #8896ab;
+  --gradient-hero:   linear-gradient(135deg, #1a1f35 0%, #0d0f14 60%, #12151f 100%);
+  --gradient-accent: linear-gradient(135deg, #6c63ff 0%, #a855f7 100%);
+  --shadow-card:     0 4px 24px rgba(0,0,0,0.4);
+  --radius:          12px;
+  --transition:      all 0.25s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* ── Reset / Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar            { width: 6px; }
+::-webkit-scrollbar-track      { background: var(--color-bg); }
+::-webkit-scrollbar-thumb      { background: var(--color-border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover{ background: var(--color-accent); }
+
+/* ── Utility: glass card ── */
+.glass {
+  background: rgba(30,37,53,0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+/* ── Animations ── */
+@keyframes fadeInUp {
+  from { opacity:0; transform:translateY(24px); }
+  to   { opacity:1; transform:translateY(0);    }
+}
+@keyframes pulse-glow {
+  0%,100% { box-shadow: 0 0 0 0 rgba(108,99,255,0.4); }
+  50%      { box-shadow: 0 0 0 8px rgba(108,99,255,0); }
+}
+
+.fade-in-up { animation: fadeInUp 0.5s ease both; }
