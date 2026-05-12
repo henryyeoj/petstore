@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: petstore-backend
+    env: docker
+    plan: free
+    repo: https://github.com/henryyeoj/petstore
+    branch: main
+    dockerfilePath: Dockerfile
+    
+  - type: web
+    name: petstore-frontend
+    env: static
+    plan: free
+    repo: https://github.com/henryyeoj/petstore
+    branch: main
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: frontend/dist
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: petstore-backend
+          envVarKey: RENDER_EXTERNAL_URL
