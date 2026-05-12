@@ -5,6 +5,7 @@ import GalleryPage from './pages/GalleryPage'
 import AdminPage from './pages/AdminPage'
 
 export default function App() {
+  console.log('App: Rendering...')
   return (
     <BrowserRouter>
       <div className="min-h-screen" style={{ background: 'var(--color-bg)' }}>

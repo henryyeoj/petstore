@@ -3,17 +3,15 @@ services:
     name: petstore-backend
     env: docker
     plan: free
-    healthCheckPath: /api/health
-    # Uses the Dockerfile in the root which builds the backend/ folder
+    dockerfilePath: Dockerfile
     
   - type: web
     name: petstore-frontend
     env: static
-    plan: free
+    repo: https://github.com/henryyeoj/petstorefrontend
+    branch: main
     buildCommand: npm install && npm run build
     staticPublishPath: dist
-    # Point to the frontend folder
-    rootDir: frontend
     envVars:
       - key: VITE_API_URL
         fromService:
