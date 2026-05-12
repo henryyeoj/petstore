@@ -8,9 +8,10 @@ import MenuItem from '@mui/material/MenuItem'
 import Button from '@mui/material/Button'
 import CircularProgress from '@mui/material/CircularProgress'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
+import { TOKENS } from '../theme/tokens'
 
 const darkTheme = createTheme({
-  palette: { mode: 'light', primary: { main: 'var(--color-accent)' } },
+  palette: { mode: 'light', primary: { main: TOKENS.accent } },
   components: {
     MuiDialog:        { styleOverrides: { paper: { background: 'var(--color-surface)', border: '1px solid var(--color-border)', borderRadius: 12 } } },
     MuiInputBase:     { styleOverrides: { root: { fontSize: 14 } } },

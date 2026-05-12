@@ -5,6 +5,7 @@ import Tooltip from '@mui/material/Tooltip'
 import EditIcon from '@mui/icons-material/Edit'
 import DeleteIcon from '@mui/icons-material/Delete'
 import PetsIcon from '@mui/icons-material/Pets'
+import { TOKENS } from '../theme/tokens'
 
 const SPECIES_EMOJI = { Dog: '🐶', Cat: '🐱', Bird: '🦜', Fish: '🐟' }
 
@@ -71,13 +72,13 @@ export default function PetCard({ pet, onEdit, onDelete, isAdmin = false }) {
             <div className="flex gap-1">
               <Tooltip title="Edit" arrow>
                 <IconButton size="small" onClick={() => onEdit(pet)}
-                  sx={{ color:'var(--color-muted)', '&:hover':{ color:'var(--color-accent)', bgcolor:'rgba(249,115,22,0.1)' } }}>
+                  sx={{ color: TOKENS.muted, '&:hover':{ color: TOKENS.accent, bgcolor:'rgba(249,115,22,0.1)' } }}>
                   <EditIcon fontSize="small" />
                 </IconButton>
               </Tooltip>
               <Tooltip title="Delete" arrow>
                 <IconButton size="small" onClick={() => onDelete(pet.id)}
-                  sx={{ color:'var(--color-muted)', '&:hover':{ color:'var(--color-accent2)', bgcolor:'rgba(14,165,233,0.1)' } }}>
+                  sx={{ color: TOKENS.muted, '&:hover':{ color: TOKENS.accent2, bgcolor:'rgba(14,165,233,0.1)' } }}>
                   <DeleteIcon fontSize="small" />
                 </IconButton>
               </Tooltip>

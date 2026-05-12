@@ -6,6 +6,7 @@ import PetCard from '../components/PetCard'
 import { petApi } from '../api/petApi'
 import FilterListIcon from '@mui/icons-material/FilterList'
 import PetsIcon from '@mui/icons-material/Pets'
+import { TOKENS } from '../theme/tokens'
 
 const SPECIES = ['All','Dog','Cat','Bird','Fish']
 const STATUSES = ['All','AVAILABLE','SOLD','RESERVED']
@@ -104,7 +105,7 @@ export default function GalleryPage() {
       {/* Grid */}
       {loading ? (
         <div className="flex justify-center items-center h-64">
-          <CircularProgress sx={{ color:'var(--color-accent)' }} />
+          <CircularProgress sx={{ color: TOKENS.accent }} />
         </div>
       ) : filtered.length === 0 ? (
         <div className="glass flex flex-col items-center justify-center py-20 text-center">

@@ -12,6 +12,7 @@ import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings'
 import PetCard from '../components/PetCard'
 import PetModal from '../components/PetModal'
 import { petApi } from '../api/petApi'
+import { TOKENS } from '../theme/tokens'
 
 export default function AdminPage() {
   const [pets, setPets] = useState([])
@@ -94,7 +95,7 @@ export default function AdminPage() {
       {/* Stats */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
         {[
-          { label:'Total Pets',  value: pets.length,                              color:'var(--color-accent)' },
+          { label:'Total Pets',  value: pets.length,                              color: TOKENS.accent },
           { label:'Available',   value: pets.filter(p=>p.status==='AVAILABLE').length, color:'#10b981' },
           { label:'Reserved',    value: pets.filter(p=>p.status==='RESERVED').length,  color:'#f59e0b' },
           { label:'Sold',        value: pets.filter(p=>p.status==='SOLD').length,       color:'#ef4444' },
@@ -109,7 +110,7 @@ export default function AdminPage() {
       {/* Grid */}
       {loading ? (
         <div className="flex justify-center items-center h-64">
-          <CircularProgress sx={{ color:'var(--color-accent)' }} />
+          <CircularProgress sx={{ color: TOKENS.accent }} />
         </div>
       ) : pets.length === 0 ? (
         <div className="glass flex flex-col items-center justify-center py-20 text-center">
