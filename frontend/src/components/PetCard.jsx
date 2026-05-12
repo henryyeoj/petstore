@@ -9,9 +9,9 @@ import PetsIcon from '@mui/icons-material/Pets'
 const SPECIES_EMOJI = { Dog: '🐶', Cat: '🐱', Bird: '🦜', Fish: '🐟' }
 
 const STATUS_COLORS = {
-  AVAILABLE: { bg: 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30', dot: 'bg-emerald-400' },
-  SOLD:      { bg: 'bg-red-500/15    text-red-400    border-red-500/30',      dot: 'bg-red-400'     },
-  RESERVED:  { bg: 'bg-amber-500/15  text-amber-400  border-amber-500/30',    dot: 'bg-amber-400'   },
+  AVAILABLE: { bg: 'bg-emerald-500/15 text-emerald-700 border-emerald-500/30', dot: 'bg-emerald-500' },
+  SOLD:      { bg: 'bg-red-500/15    text-red-700    border-red-500/30',      dot: 'bg-red-500'     },
+  RESERVED:  { bg: 'bg-amber-500/15  text-amber-700  border-amber-500/30',    dot: 'bg-amber-500'   },
 }
 
 export default function PetCard({ pet, onEdit, onDelete, isAdmin = false }) {
@@ -19,9 +19,9 @@ export default function PetCard({ pet, onEdit, onDelete, isAdmin = false }) {
   const sc = STATUS_COLORS[pet.status] ?? STATUS_COLORS.AVAILABLE
 
   return (
-    <article className="glass overflow-hidden flex flex-col group hover:border-[#6c63ff]/50 hover:-translate-y-1 transition-all duration-300 hover:shadow-xl hover:shadow-[#6c63ff]/10 fade-in-up">
+    <article className="glass overflow-hidden flex flex-col group hover:border-[var(--color-accent)]/50 hover:-translate-y-1 transition-all duration-300 hover:shadow-xl hover:shadow-[var(--color-accent)]/10 fade-in-up">
       {/* Image */}
-      <div className="relative h-52 overflow-hidden bg-[#1e2535]">
+      <div className="relative h-52 overflow-hidden bg-[var(--color-surface2)]">
         {pet.imageUrl && !imgErr ? (
           <img
             src={pet.imageUrl}
@@ -50,20 +50,20 @@ export default function PetCard({ pet, onEdit, onDelete, isAdmin = false }) {
       {/* Body */}
       <div className="p-5 flex flex-col gap-3 flex-1">
         <div>
-          <h3 className="font-bold text-lg text-white leading-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+          <h3 className="font-bold text-lg text-[var(--color-text)] leading-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
             {pet.name}
           </h3>
-          <p className="text-sm text-[#8896ab] mt-0.5">
+          <p className="text-sm text-[var(--color-muted)] mt-0.5">
             {pet.species}{pet.breed ? ` · ${pet.breed}` : ''}{pet.age != null ? ` · ${pet.age}mo` : ''}
           </p>
         </div>
 
         {pet.description && (
-          <p className="text-sm text-[#8896ab] line-clamp-2 leading-relaxed">{pet.description}</p>
+          <p className="text-sm text-[var(--color-muted)] line-clamp-2 leading-relaxed">{pet.description}</p>
         )}
 
-        <div className="mt-auto flex items-center justify-between pt-3 border-t border-[#2a3247]">
-          <span className="text-xl font-bold text-[#6c63ff]">
+        <div className="mt-auto flex items-center justify-between pt-3 border-t border-[var(--color-border)]">
+          <span className="text-xl font-bold text-[var(--color-accent)]">
             ${parseFloat(pet.price).toFixed(2)}
           </span>
 
@@ -71,13 +71,13 @@ export default function PetCard({ pet, onEdit, onDelete, isAdmin = false }) {
             <div className="flex gap-1">
               <Tooltip title="Edit" arrow>
                 <IconButton size="small" onClick={() => onEdit(pet)}
-                  sx={{ color:'#8896ab', '&:hover':{ color:'#6c63ff', bgcolor:'rgba(108,99,255,0.1)' } }}>
+                  sx={{ color:'var(--color-muted)', '&:hover':{ color:'var(--color-accent)', bgcolor:'rgba(249,115,22,0.1)' } }}>
                   <EditIcon fontSize="small" />
                 </IconButton>
               </Tooltip>
               <Tooltip title="Delete" arrow>
                 <IconButton size="small" onClick={() => onDelete(pet.id)}
-                  sx={{ color:'#8896ab', '&:hover':{ color:'#ff6584', bgcolor:'rgba(255,101,132,0.1)' } }}>
+                  sx={{ color:'var(--color-muted)', '&:hover':{ color:'var(--color-accent2)', bgcolor:'rgba(14,165,233,0.1)' } }}>
                   <DeleteIcon fontSize="small" />
                 </IconButton>
               </Tooltip>

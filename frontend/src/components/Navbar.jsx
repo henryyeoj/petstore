@@ -14,8 +14,8 @@ export default function Navbar() {
         to={to}
         className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200
           ${active
-            ? 'bg-[#6c63ff] text-white shadow-lg shadow-[#6c63ff]/30'
-            : 'text-[#8896ab] hover:text-white hover:bg-[#2a3247]'
+            ? 'bg-[var(--color-accent)] text-[var(--color-surface)] shadow-lg shadow-[var(--color-accent)]/30'
+            : 'text-[var(--color-muted)] hover:text-[var(--color-accent)] hover:bg-[var(--color-surface2)]'
           }`}
       >
         <Icon fontSize="small" />
@@ -25,15 +25,15 @@ export default function Navbar() {
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[#2a3247] backdrop-blur-xl bg-[rgba(13,15,20,0.85)]">
+    <header className="sticky top-0 z-50 border-b border-[var(--color-border)] backdrop-blur-xl bg-[var(--color-bg)]/85">
       <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3 group">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#6c63ff] to-[#a855f7] flex items-center justify-center shadow-lg shadow-[#6c63ff]/30 group-hover:scale-110 transition-transform">
-            <PetsIcon fontSize="small" className="text-white" />
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-accent2)] flex items-center justify-center shadow-lg shadow-[var(--color-accent)]/30 group-hover:scale-110 transition-transform">
+            <PetsIcon fontSize="small" className="text-[var(--color-surface)]" />
           </div>
           <span className="font-bold text-lg tracking-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-            Pet<span className="text-[#6c63ff]">Store</span>
+            Pet<span className="text-[var(--color-accent)]">Store</span>
           </span>
         </Link>
 

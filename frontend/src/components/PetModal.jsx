@@ -10,11 +10,11 @@ import CircularProgress from '@mui/material/CircularProgress'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 
 const darkTheme = createTheme({
-  palette: { mode: 'dark', primary: { main: '#6c63ff' } },
+  palette: { mode: 'light', primary: { main: 'var(--color-accent)' } },
   components: {
-    MuiDialog:        { styleOverrides: { paper: { background: '#161b26', border: '1px solid #2a3247', borderRadius: 12 } } },
+    MuiDialog:        { styleOverrides: { paper: { background: 'var(--color-surface)', border: '1px solid var(--color-border)', borderRadius: 12 } } },
     MuiInputBase:     { styleOverrides: { root: { fontSize: 14 } } },
-    MuiOutlinedInput: { styleOverrides: { notchedOutline: { borderColor: '#2a3247' } } },
+    MuiOutlinedInput: { styleOverrides: { notchedOutline: { borderColor: 'var(--color-border)' } } },
   },
 })
 
@@ -30,7 +30,10 @@ export default function PetModal({ open, onClose, onSave, initial }) {
     setErrors({})
   }, [initial, open])
 
-  const set = (field) => (e) => setForm(f => ({ ...f, [field]: e.target.value }))
+  const set = (field) => (e) => {
+    setForm(f => ({ ...f, [field]: e.target.value }))
+    if (errors[field]) setErrors(prev => ({ ...prev, [field]: null }))
+  }
 
   const validate = () => {
     const e = {}
@@ -79,7 +82,7 @@ export default function PetModal({ open, onClose, onSave, initial }) {
             multiline rows={3} fullWidth />
         </DialogContent>
         <DialogActions sx={{ p: 2, gap: 1 }}>
-          <Button onClick={onClose} variant="outlined" color="inherit" sx={{ borderColor:'#2a3247' }}>
+          <Button onClick={onClose} variant="outlined" color="inherit" sx={{ borderColor:'var(--color-border)' }}>
             Cancel
           </Button>
           <Button onClick={handleSave} variant="contained" color="primary" disabled={saving}
