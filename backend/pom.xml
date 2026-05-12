@@ -21,6 +21,19 @@
         <java.version>17</java.version>
     </properties>
 
+    <developers>
+        <developer>
+            <name>henryyeoj</name>
+            <email>hysdelacruz.student@ua.edu.ph</email>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:https://github.com/henryyeoj/petstore.git</connection>
+        <developerConnection>scm:git:https://github.com/henryyeoj/petstore.git</developerConnection>
+        <url>https://github.com/henryyeoj/petstore</url>
+    </scm>
+
     <dependencies>
         <!-- Web -->
         <dependency>
