@@ -1,18 +1,27 @@
 services:
+  # Backend Service (Node.js)
   - type: web
     name: petstore-backend
-    env: docker
+    runtime: node
     plan: free
+    region: singapore
+    buildCommand: npm install
+    startCommand: node backend/index.js
     healthCheckPath: /api/health
-    # Uses the Dockerfile in the root which builds the backend/ folder
-    
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+
+  # Frontend Service (Static Site)
   - type: web
     name: petstore-frontend
     env: static
     plan: free
+    region: singapore
+    buildContext: frontend
     buildCommand: npm install && npm run build
     staticPublishPath: dist
-    # Point to the frontend folder
+    # Points to the frontend folder
     rootDir: frontend
     envVars:
       - key: VITE_API_URL
