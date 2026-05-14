@@ -18,10 +18,8 @@ services:
     env: static
     plan: free
     region: singapore
-    buildContext: frontend
     buildCommand: npm install && npm run build
     staticPublishPath: dist
-    # Points to the frontend folder
     rootDir: frontend
     envVars:
       - key: VITE_API_URL
